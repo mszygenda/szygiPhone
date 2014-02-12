@@ -1,0 +1,15 @@
+#!/bin/bash
+PHONE_NUMBER=$1
+MUTE_APP_CMD="$PWD/tools/muteApp"
+SET_DEFAULT_SOURCE="$PWD/tools/setDefaultInput"
+
+$SET_DEFAULT_SOURCE
+skype "skype:$PHONE_NUMBER?call" &
+sleep 0.2
+$SET_DEFAULT_SOURCE
+sleep 3
+$MUTE_APP_CMD "skype"
+sleep 3
+$MUTE_APP_CMD "skype"
+sleep 3
+$MUTE_APP_CMD "skype"

@@ -1,0 +1,41 @@
+package org.szygi.phoneserver.sms
+
+class SmsServer extends Actor {
+  private val sendCmd = "/home/szygi/Praca/becauseican/phone-server/tools/sendSms"
+  private val fetchCmd: String
+
+  def receive = {
+    case Send(msg: Message) => {
+      sendSms(msg)
+    }
+    case FetchMessage(receiver: Agent) => {
+      val inbox = fetchMessages()
+
+      inbox.foreach(receiver ! _)
+    }    
+  }
+
+  private def fetchMessages(): Seq[Message] = {
+    val out = (Seq("bash", fetchCmd, "2>", "/dev/null") !!).trim()
+    val msgSeparator = "\n####\n"
+
+    if (out.length() == 0) {
+      return Seq()
+    }
+
+    out.split(msgSeparator).map(Message(_))
+  }
+
+  private def sendSms(msg: Message) {
+    println("Trying to send sms to %s content: %s" format (msg.receiver, msg.content))
+
+    Seq("bash", sendCmd, msg.receiver, msg.content) ! match {
+      case 0 => println("Message successfully sent to number %s" format num)
+      case _: Int => { 
+        println("Failed to send sms to number %s. Retrying" format msg.receiver)
+        self ! Send(msg) 
+      }
+    }
+
+  }
+}

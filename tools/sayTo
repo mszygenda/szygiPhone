@@ -1,0 +1,15 @@
+#!/bin/bash
+NUMBER=$1
+DELAY=$2
+TIMES=$3
+TEXT=$4
+VOICE=$5
+STOP_SOUNDS_CMD="$PWD/tools/stopSounds"
+SAY_IT_CMD="$PWD/tools/sayIt"
+CALL_CMD="$PWD/tools/call"
+HANG_UP_CMD="$PWD/tools/hangUp"
+
+$STOP_SOUNDS_CMD
+$CALL_CMD "$NUMBER" &
+$SAY_IT_CMD "$DELAY" "$TIMES" "$TEXT" "$VOICE"
+$HANG_UP_CMD

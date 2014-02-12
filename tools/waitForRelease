@@ -1,0 +1,6 @@
+#!/bin/bash
+LOCK_FILE=/tmp/phone-server-lock
+
+while [ -f $LOCK_FILE ]; do
+  sleep 0.001
+done

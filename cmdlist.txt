@@ -1,0 +1,64 @@
+1
+
+$ cat sms2 
+Slot: 128
+From: 211
+Date: nie, 2 lut 2014, 23:24:43
+SMSC number: +48501200777
+PDU type: SMS-DELIVER
+Protocol ID: 0x39 (telematic interworking)
+Settings: 7bit-GSM
+Message header:
+  Multipart message: sequence number = 26, part 2 of 2
+Message length: 122
+
+[...]l/min). UWAGA - niektore z konfiguracji moga wymagac wykonania dodatkowych instrukcji, ktore otrzymasz w kolejnych SMSach.
+
+Slot: 122
+From: 1021581519438
+Date: nie, 2 lut 2014, 23:27:19
+SMSC number: +48501200777
+PDU type: SMS-DELIVER
+PDU flags: MoreMessagesToSend
+Protocol ID: 0x39 (telematic interworking)
+Settings: 7bit-GSM
+Message length: 33
+
+OD Test*Odpisz zaraz*:Hello world
+
+
+Send SMS:
+
+scmxx -d /dev/ttyUSB0 --sms --text "Hello" --number 502968591 --direct
+
+/usr/share/doc/libmodem-vgetty-perl/examples/callme.pl
+
+Initiate call (No questions asked! Just make sure it's running)
+
+skype:+48514219665?call
+
+Get MP3 Of a song
+
+spotify-to-mp3 fileWithListOfSongs
+
+Redirect sound to microphone:
+
+$ pactl load-module module-null-sink sink_name=Virtual2 sink_properties=device.description="Music"
+29
+szygi@ubuntu-desktop:/tmp/agrsm-11c11040-2.1.80-20110811
+$ pactl load-module module-loopback sink=Virtual2
+30
+
+Wystarczy ustawić w zakładce nagrywanie (pavucontrol) "Input z Monitor of Built-In Audio Analogwe stereo"
+
+o
+
+dopisac:
+
+vim /home/szygi/.rvm/gems/ruby-1.9.2-p290/gems/spotify-to-mp3-0.5.1/lib/spotify_to_mp3/app.rb
+
+exit 1 przy errorze
+
+
+gammu --config ~/.gammu sendsms TEXT "+48514219665" -text "All your base are belong to us"
+

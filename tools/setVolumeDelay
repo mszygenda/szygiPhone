@@ -1,0 +1,8 @@
+#!/bin/bash
+VOLUME=$1
+DELAY=$2
+
+SET_VOLUME_CMD="$PWD/tools/setVolume"
+
+sleep $DELAY
+$SET_VOLUME_CMD $VOLUME

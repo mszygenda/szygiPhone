@@ -1,0 +1,3 @@
+#!/bin/bash
+rm /tmp/phone-server-lock -f
+exit 0

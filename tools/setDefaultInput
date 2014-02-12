@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#pacmd set-default-sink alsa_output.usb-Generic_FREETALK_Everyman_0000000001-00-Everyman.analog-stereo
+
+#pacmd set-default-source alsa_output.pci-0000_00_1b.0.analog-stereo.monitor
+#pacmd set-default-source ladspa_output.mbeq_1197.mbeq.monitor
+pacmd set-default-source alsa_output.pci-0000_00_1b.0.analog-stereo.monitor
+#pactl set-source-volume ladspa_output.mbeq_1197.mbeq.monitor 82550
+
+exit 0

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+TEXT=$1
+TMP_FILE=$2
+VOICE=$3
+
+if [ "$4" == "" ]; then
+  PLAY=1
+else
+  PLAY=$4
+fi
+
+IVONA_DOWNLOAD_CMD="python3 $PWD/tools/python/create.py" 
+SWITCH_EQ_CMD="$PWD/tools/switchEqualizer"
+SET_VOLUME_CMD="$PWD/tools/setVolume"
+
+$SWITCH_EQ_CMD "flat" enable
+$SET_VOLUME_CMD 95555
+$IVONA_DOWNLOAD_CMD --out "$TMP_FILE" --text "$TEXT" --voice "$VOICE"
+
+if [ "$PLAY" == "1" ]; then
+  mplayer $TMP_FILE
+fi

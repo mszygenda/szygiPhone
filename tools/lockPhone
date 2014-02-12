@@ -1,0 +1,4 @@
+#!/bin/bash
+touch /tmp/phone-server-lock
+sleep 0.5
+exit 0

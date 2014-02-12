@@ -1,0 +1,4 @@
+#!/bin/bash
+SAY_CMD=sayIt
+killall -s 9 mplayer
+killall -s 9 -r "$SAY_CMD"

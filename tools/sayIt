@@ -1,0 +1,28 @@
+#!/bin/bash
+DELAY=$1
+TIMES=$2
+TEXT=$3
+COUNT=0
+IVONA_SAY_CMD="$PWD/tools/ivonaSay"
+IVONA_FILE=/tmp/ivona-phrase.mp3
+
+if [ "$4" == "" ]; then
+  VOICE="pl_jan"
+else
+  VOICE="pl_$4"
+fi
+
+$IVONA_SAY_CMD "$TEXT" "$IVONA_FILE" "$VOICE" 0
+sleep $DELAY
+
+while [ 0 ]; do
+  if [ "$COUNT" -eq "$TIMES" ]; then
+    exit 0
+  fi
+
+  mplayer /tmp/ivona-phrase.mp3
+#  espeak -v pl "$TEXT" -s 135 -p 40
+
+  sleep 1
+  COUNT=$(($COUNT + 1))
+done

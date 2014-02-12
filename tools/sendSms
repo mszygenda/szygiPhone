@@ -1,0 +1,6 @@
+#!/bin/bash
+PHONE_DEV=/dev/ttyUSB0
+NUMBER=$1
+MESSAGE=$2
+
+scmxx -d $PHONE_DEV --sms --text "$MESSAGE" --number "$NUMBER" --send --direct

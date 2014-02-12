@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "Hanging up call"
+killall -s 9 skype
+skype &

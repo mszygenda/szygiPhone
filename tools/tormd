@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ $# -ne 1 ]; then
+  echo "Bad usage"
+  exit 1
+fi
+
+rmdtopvf "$1" | pvftowav

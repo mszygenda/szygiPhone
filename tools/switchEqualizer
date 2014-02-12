@@ -1,0 +1,12 @@
+#!/bin/bash
+
+PRESET=$1
+ENABLE=$2
+
+CONFIG_FILE="/home/szygi/.pulse/$PRESET.rc"
+TARGET_CONFIG=/home/szygi/.pulse/equalizerrc
+SET_DEFAULT_SOURCE="$PWD/tools/setDefaultInput"
+
+cat "$CONFIG_FILE" > "$TARGET_CONFIG"
+pulseaudio-equalizer "$ENABLE"
+$SET_DEFAULT_SOURCE
