@@ -4,7 +4,7 @@ import org.szygi.phoneserver.services.{Request, ServiceContext, Command}
 import sys.process._
 
 case class SayIt(req: Request, phoneNumber: String, delay: Int, times: String, message: String, voice: String) extends Command {
-  private val sayToCmd = "/home/szygi/Praca/becauseican/phone-server/tools/sayTo"
+  private val sayToCmd = "tools/sayTo"
 
   def execute(ctx: ServiceContext): Unit = {
     println("Saying phrase '%s' to number '%s'" format (message, phoneNumber))

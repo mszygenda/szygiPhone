@@ -4,7 +4,7 @@ import org.szygi.phoneserver.services.{ServiceContext, Response}
 import sys.process._
 
 case class PlaySongCommand(number: String, title: String) {
-  val playSongCmd = "/home/szygi/Praca/becauseican/phone-server/tools/playMusic.sh"
+  val playSongCmd = "tools/playMusic.sh"
 
   def execute(ctx: ServiceContext, response: Response) {
     println("Playing song '%s' to number '%s'" format (title, number))

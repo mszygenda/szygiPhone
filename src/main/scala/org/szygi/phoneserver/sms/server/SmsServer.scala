@@ -6,8 +6,8 @@ import sys.process._
 import scala.concurrent.duration._
 
 class SmsServer extends Actor {
-  private val sendCmd = "/home/szygi/Praca/becauseican/phone-server/tools/sendSms"
-  private val fetchCmd: String = "/home/szygi/Praca/becauseican/phone-server/tools/fetchSms.sh"
+  private val sendCmd = "tools/sendSms"
+  private val fetchCmd: String = "tools/fetchSms.sh"
 
   private var messageListeners: List[ActorRef] = List()
 
